@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+header {
+  background-color: darkred;
+  color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background-color: white;
+  margin: 0;
+}
+
+main {
+  max-width: 70rem;
+  min-width: 40rem;
+  margin: 0 auto;
+  background-color: white;
+}
+
+#user-responses {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  place-items: center;
+  grid-gap: 2rem;
+  margin: 0 auto;
+}
+
+#user-responses .card {
+  background-color: whitesmoke;
+  height: 420px;
+  width: 600px;
+  margin: 1rem;
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "name name general1 general2"
+    "photo photo other other"
+    "title title stats1 stats2";
+  align-items: center;
+  place-items: center;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  box-shadow: 0.2rem 0.2rem 0.4rem 0 rgba(99, 99, 99, 0.4);
+}
+
+h1 {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+h4 {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.user-name {
+  grid-area: name;
+  text-align: center;
+}
+
+.photo {
+  grid-area: photo;
+  display: flex;
+  justify-content: center;
+}
+
+.photo img {
+  display: block;
+  margin: 0 auto;
+  width: 8rem;
+  height: 12rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  box-shadow: 0.2rem 0.2rem 0.4rem 0 rgba(99, 99, 99, 0.4);
+}
+
+.film-title {
+  padding: 0.5rem;
+  grid-area: title;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.general1 {
+  grid-area: general1;
+}
+
+.general2 {
+  grid-area: general2;
+}
+
+.other {
+  grid-area: other;
+  padding: 1rem;
+}
+
+.stats1 {
+  grid-area: stats1;
+  font-size: 0.5rem;
+  font-style: italic;
+}
+
+.stats2 {
+  grid-area: stats2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img.logo {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+p {
+  margin: 0;
+  font-weight: 400;
+  font-size: 0.8rem;
+}
