@@ -120,7 +120,7 @@ h6 {
   height: 12rem;
   object-fit: cover;
   border-radius: 0.5rem;
-  box-shadow: 0.2rem 0.2rem 0.4rem 0 rgba(99, 99, 99, 0.4);
+  box-shadow: 0.1rem 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.7);
 }
 
 .film-title {
@@ -130,6 +130,7 @@ h6 {
   font-weight: 400;
   text-align: center;
   font-family: "Source Sans Pro", sans-serif;
+  text-shadow: 2px 2px rgb(34, 126, 206);
 }
 
 .general1 {
