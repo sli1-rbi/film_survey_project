@@ -83,6 +83,7 @@ function renderUserResponse(userResponse) {
     }
 
   return `
+  <div class="outer">
   <div class="card">
     <div class="user-name">
       <h2>${userName}</h2>
@@ -107,13 +108,13 @@ function renderUserResponse(userResponse) {
       <p>${willPayFee}</p>
     </div>
     <div class="other">
-      <h6>Checklist: </h6>
+      <h6>10-year Best Picture Checklist: </h6>
       <p>${oscarViewedList}</p>
     </div>
-    <div class="stats2">
-      <p>Mainly streams:</p>  
+    <div class="stats2"> 
       <img class="logo" src="${streamUrl}" alt="${streamingService}" />
     </div>
+  </div>
   </div>
   `;
 }
