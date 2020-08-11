@@ -33,13 +33,13 @@ main {
 #filters {
   display: flex;
   justify-content: space-evenly;
-  margin: 0 auto 0.5rem auto;
+  margin: 0 auto 1rem auto;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: normal;
-  width: 600px;
+  width: 100%;
   padding: 1rem 0;
-  background-color: rgb(40, 40, 40);
-  color: rgb(255, 253, 236);
+  background-color: rgb(255, 251, 204);
+  color: rgb(40, 40, 40);
   box-shadow: 0.3rem 0.3rem 0.2rem 0 rgba(150, 150, 150, 0.6);
 }
 

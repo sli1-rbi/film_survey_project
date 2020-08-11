@@ -13,60 +13,60 @@ const fetchAndShowResponses = async() => {
   const eachUserResponseHTML = responses.map(renderUserResponse);
   const allUsersResponseHTML = eachUserResponseHTML.join('');
   document.querySelector("#user-responses").innerHTML = allUsersResponseHTML;
+  renderChart(1); //number 1, 2, 3 to top genre choice
+}
 
-  function renderChart(ranking) {
-    let key = '';
-    switch (ranking) {
-      case 2:
-        key = "Please select your top 3 film genres [Second choice]";
-        break;
-      case 3:
-        key = "Please select your top 3 film genres [Third choice]";
-        break;
-      default:
-        key = "Please select your top 3 film genres [Top choice]";
-        break;
-    }
-    const genreCount = {
-      "Action": 0,
-      "Comedy": 0,
-      "Drama": 0,
-      "Fantasy/Sci-Fi": 0,
-      "Horror/Thriller": 0,
-      "Mystery": 0,
-      "Romance": 0,
-    }
-
-    responses.forEach(response => {
-    genreCount[response[key]] += 1;
-    })
-    
-     
-    new Chart("doughnut", {
-      type: 'doughnut',
-      data: {
-        datasets: [{
-          data: Object.values(genreCount),
-          backgroundColor: ["darkred", "gold", "green", "lightblue", "black", "purple", "pink"]
-        }],
-        labels: Object.keys(genreCount)
-      },
-      options: {
-        title: {
-          display: true,
-          text: `No. ${ranking} Genre of Respondents`,
-          fontFamily: "Source Sans Pro",
-          fontSize: "18"
-        },
-        legend: {
-          display: true,
-          position: "right"
-        }
-      }
-
-    });
+function renderChart(ranking) {
+  let key = '';
+  switch (ranking) {
+    case 2:
+      key = "Please select your top 3 film genres [Second choice]";
+      break;
+    case 3:
+      key = "Please select your top 3 film genres [Third choice]";
+      break;
+    default:
+      key = "Please select your top 3 film genres [Top choice]";
+      break;
   }
-  renderChart(2);
+  const genreCount = {
+    "Action": 0,
+    "Comedy": 0,
+    "Drama": 0,
+    "Fantasy/Sci-Fi": 0,
+    "Horror/Thriller": 0,
+    "Mystery": 0,
+    "Romance": 0,
+  }
+
+  responses.forEach(response => {
+  genreCount[response[key]] += 1;
+  })
+  
+   
+  new Chart("doughnut", {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: Object.values(genreCount),
+        backgroundColor: ["darkred", "gold", "green", "lightblue", "black", "purple", "pink"]
+      }],
+      labels: Object.keys(genreCount)
+    },
+    options: {
+      title: {
+        display: true,
+        text: `No. ${ranking} Genre of Respondents`,
+        fontFamily: "Source Sans Pro",
+        fontSize: "18"
+      },
+      legend: {
+        display: true,
+        position: "right"
+      }
+    }
+
+  });
 }
 
 function renderUserResponse(userResponse) {
@@ -175,6 +175,7 @@ const filterSection = document.querySelector('#filters');
 const searchInput = document.querySelector('#search');
 const genreSelect = document.querySelector('#genres');
 const hideButton = document.querySelector('#stats-button')
+const rankingSelect = document.querySelector('#ranking');
 
 function resultFilter(userResponse) {
   const selectedGenre = genreSelect.value.toLowerCase();
@@ -188,7 +189,7 @@ function resultFilter(userResponse) {
   const userName = userResponse["What is your name?"];
   const streamingService = userResponse["Which of the following streaming services do you use the most lately?"];
   
-  return ((userName.toLowerCase().includes(searchTerm)) &&
+  return ((userName.toLowerCase().includes(searchTerm) || oscarViewedList.toLowerCase().includes(searchTerm)) &&
           (genre1.toLowerCase() === selectedGenre ||
           genre2.toLowerCase() === selectedGenre ||
           genre3.toLowerCase() === selectedGenre ||
@@ -205,6 +206,11 @@ function handleHideClick() {
   document.querySelector('#summary-stats').classList.toggle("hidden");
 }
 
+function handleRankingInput() {
+  renderChart(Number(rankingSelect.value));
+}
+
 searchInput.addEventListener('input', handleFilterInput);
 genreSelect.addEventListener('input', handleFilterInput);
 hideButton.addEventListener('click', handleHideClick);
+rankingSelect.addEventListener('input', handleRankingInput);
