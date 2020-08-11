@@ -20,11 +20,34 @@
       </p>
     </header>
     <main>
-      <section id="summary-stats"></section>
-      <section id="user-responses"></section>
+      <section id="filters" class="drop-shadow">
+        <div>
+          <label for="search">Search:</label>
+          <input type="text" id="search" autocomplete="off" />
+        </div>
+        <div>
+          <label for="genres">Genres:</label>
+          <select id="genres">
+            <option>All</option>
+            <option>Action</option>
+            <option>Comedy</option>
+            <option>Drama</option>
+            <option>Fantasy/Sci-Fi</option>
+            <option>Horror/Thriller</option>
+            <option>Mystery</option>
+            <option>Romance</option>
+          </select>
+        </div>
+        <div><button id="stats-button">Hide/Open Stats</button></div>
+      </section>
+      <section id="summary-stats">
+        <canvas id="doughnut"></canvas>
+      </section>
+      <section id="user-responses" class="drop-shadow"></section>
     </main>
     <footer></footer>
     <script src="data.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.2.0/papaparse.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.min.js"></script>
   </body>
 </html>

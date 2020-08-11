@@ -27,7 +27,31 @@ body {
 
 main {
   max-width: 70rem;
-  margin: 2rem auto 0 auto;
+  margin: 1rem auto 0 auto;
+}
+
+#filters {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto 0.5rem auto;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: normal;
+  width: 600px;
+  padding: 1rem 0;
+  background-color: rgb(40, 40, 40);
+  color: rgb(255, 253, 236);
+  box-shadow: 0.3rem 0.3rem 0.2rem 0 rgba(150, 150, 150, 0.6);
+}
+
+#summary-stats {
+  position: relative;
+  width: 600px;
+  height: 300px;
+  margin: 1rem auto;
+}
+
+.hidden {
+  display: none;
 }
 
 #user-responses {
